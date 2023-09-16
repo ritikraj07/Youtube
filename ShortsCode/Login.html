@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <style>
+      body {
+        padding-top: 100px;
+        padding: auto;
+        background-color: rgb(8, 32, 69);
+      }
+
+      .container {
+        padding: 0 50px;
+        width: 300px;
+        height: 230px;
+        box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        background-color: white;
+        border-radius: 5%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .input-container input {
+        width: 80%;
+        border: none;
+        font-size: 16px;
+        outline: none;
+        padding-left: 10px;
+      }
+
+      .input-container {
+        width: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin: 10px;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+      }
+
+      .login-button {
+        background-color: #4caf50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 5px;
+        font-size: 16px;
+        cursor: pointer;
+        transition: ease 2s;
+      }
+
+      .login-button:hover {
+        background-color: #03d4b9;
+        padding: 10px 50px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <p>Login Now</p>
+      <div class="input-container">
+        <i class="fa-regular fa-envelope"></i>
+        <input type="text" id="emailOrPhone" placeholder="Email or Phone" />
+      </div>
+      <div class="input-container">
+        <i class="fa-solid fa-key"></i>
+        <input type="password" id="password" placeholder="Password" />
+        <i class="fa fa-eye-slash" id="togglePassword"></i>
+      </div>
+      <button class="login-button" onclick="login()">Log In</button>
+    </div>
+  </body>
+</html>
+<script
+  src="https://kit.fontawesome.com/257095c429.js"
+  crossorigin="anonymous"
+></script>
+<script>
+        const passwordInput = document.getElementById("password");
+        const togglePassword = document.getElementById("togglePassword");
+
+        // Toggle password visibility
+        togglePassword.addEventListener("click", function () {
+            if (passwordInput.type === "password") {
+                passwordInput.type = "text";
+                togglePassword.classList.remove("fa-eye-slash");
+                togglePassword.classList.add("fa-eye");
+            } else {
+                passwordInput.type = "password";
+                togglePassword.classList.remove("fa-eye");
+                togglePassword.classList.add("fa-eye-slash");
+            }
+        });
+
+        function login() {
+            // Add your login logic here
+            const emailOrPhone = document.getElementById("emailOrPhone").value;
+            const password = passwordInput.value;
+
+            // Example: Check if email/phone and password are valid
+            if (emailOrPhone && password) {
+                alert("Login successful!");
+            } else {
+                alert("Invalid email/phone or password.");
+            }
+        }
+    </script>

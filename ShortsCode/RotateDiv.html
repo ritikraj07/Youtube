@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Rotating Div</title>
+</head>
+<style>
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #000000;
+}
+
+.container {
+    perspective: 1000px;
+}
+
+.card {
+    width: 200px;
+    height: 300px;
+    position: relative;
+    transform-style: preserve-3d;
+    transition: transform 3s; /* Updated transition time to 3 seconds */
+}
+
+.front, .back {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    backface-visibility: hidden;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 5%;
+}
+
+.front {
+    background: linear-gradient(135deg, #3498db, #2ecc71); /* Front card gradient */   
+    transform: rotateY(0deg); /* Initial state for front */
+}
+
+.back {
+    background: linear-gradient(45deg, #e74c3c, #f39c12); /* Back card gradient */
+    transform: rotateY(180deg); /* Initial state for back */
+}
+
+.card:hover {
+    transform: rotateY(180deg); /* Rotate the card on hover */
+}
+
+p{
+    margin: 0 10px;
+    align-items: center;
+}
+
+.image {
+    width: 100px; /* Set the width and height as needed */
+    height: 150px;
+    background-size: cover;
+    background-position: center;
+    margin-top: 20px; /* Adjust spacing as needed */
+}
+</style>
+<body>
+    <div class="container">
+        <div class="card">
+            <div class="front">
+                <p>Learn frontend and backend development.<Br/> Please support by ❤️</p>
+                <div class="image" style="background-image: url('https://static.wixstatic.com/media/af1176_d99684a164c54d8bac6ffcf85f1f03b4~mv2.png/v1/fill/w_560,h_834,al_c,q_90,usm_0.66_1.00_0.01,enc_auto/The_Mind_Maestro_captivating_character_design_of_DC_The_Joker_h_697fcb89-9889-4ce2-a524-d2.png');"></div>
+            </div>
+            <div class="back">
+                <p>Please subscribe and like this video</p>
+                <div class="image" style="background-image: url('https://e7.pngegg.com/pngimages/458/229/png-clipart-king-of-spade-playing-card-king-of-spades-playing-card-suit-jack-queen-miscellaneous-game-thumbnail.png');"></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

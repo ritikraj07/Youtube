@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      body {
+        display: flex;
+        align-items: center;
+        background-color: black;
+        justify-content: center;
+        flex-direction: column;
+        padding: 100px;
+      }
+
+      .title {
+        font-size: 24px;
+        background: linear-gradient(45deg, #52f046, #ffd700);
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        transition: color 2s;
+      }
+
+      .gradient-button:hover + .title {
+        color: white;
+      }
+
+      .gradient-button-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .gradient-button {
+        color: white;
+        font-size: 16px;
+        cursor: pointer;
+        width: 250px;
+        height: 60px;
+        background: linear-gradient(45deg, #52f046, #ffd700);
+        transition: border-radius 2s, font-size 2s, background 2s, width 2s;
+      }
+
+      .gradient-button:hover {
+        background: linear-gradient(45deg, #ffd700, #ff5733);
+        border-radius: 0 50%;
+        font-size: 20px;
+        width: 300px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="gradient-button-container">
+      <button class="gradient-button">Please Subscribe My Channel</button>
+      <p class="title">
+        For learning Frontend <br />
+        and Backend
+      </p>
+    </div>
+  </body>
+</html>
