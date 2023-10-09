@@ -1,7 +1,7 @@
 const { Schema, model } = require('mongoose')
 
 const UserSchema = new Schema({
-    perName: String,
+    petName: String,
     email: {
         require: true,
         type: String
@@ -14,8 +14,13 @@ const UserSchema = new Schema({
     gender: String,
     breed: String,
     original: Boolean,
-    location: String,
-
+    location: {
+        Latitude: String,
+        Longitude: String
+    },
+    purpose: String,
+    image: String,
+    ownerName: String
 })
 
 const User = model('User', UserSchema)

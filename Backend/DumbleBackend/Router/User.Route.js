@@ -1,5 +1,5 @@
 const { Router } = require("express")
-const { createUser, updateUser, getUserById } = require("../Controller/User.Controller")
+const { createUser, updateUser, getUserById, searchUser } = require("../Controller/User.Controller")
 
 const userRouter = Router()
 
@@ -13,7 +13,7 @@ userRouter.post('/', async (req, res) => {
 })
 
 
-userRouter.patch('/:id', async (req, res) => {
+userRouter.patch('/id/:id', async (req, res) => {
     let id = req.params.id
     let body = req.body
     let user = await updateUser({ id, body })
@@ -23,13 +23,33 @@ userRouter.patch('/:id', async (req, res) => {
     })
 })
 
-userRouter.get('/:id', async (req, res) => {
+userRouter.get('/id/:id', async (req, res) => {
     let _id = req.params.id
     let user = await getUserById(_id)
     return res.send({
         responce: user
     })
 })
+
+userRouter.get('/search', async (req, res) => {
+    let { high_age, low_age, gender,
+        breed, original, Latitude,
+        Longitude, maxDistance } = req.query
+    
+    console.log(high_age, low_age, gender,
+        breed, original, Latitude,
+        Longitude, maxDistance)
+    
+    let user = await searchUser({
+        high_age, low_age, gender,
+        breed, original, Latitude,
+        Longitude, maxDistance
+    })
+    
+    return res.send({
+        response: user
+    })
+} )
 
 module.exports = userRouter
 
